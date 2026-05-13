@@ -29,9 +29,34 @@ export default function Home() {
     title: "FAQ"
   },
  ];
- const banner =[
+ const our =[
   {
-
+    id: 1,
+    icon: "/image/Vector.png"
+  },
+  {
+    id: 2,
+    icon: "/image/Vector (1).png"
+  },
+  {
+    id: 3,
+    icon: "/image/Logo (5).png"
+  },
+  {
+    id: 4,
+    icon: "/image/Logo (4).png"
+  },
+    {
+    id: 5,
+    icon: "/image/Logo (1).png"
+  },
+  {
+    id: 6,
+    icon: "/image/Logo (2).png"
+  },
+  {
+    id: 7,
+    icon: "/image/Logo (5).png"
   }
  ]
 return( 
@@ -69,7 +94,21 @@ return(
         <img src="/image/Illustration.png" alt="Nexcent Illustration " />
       </div>
     </section>
-
+    <section className="clients-inner">
+      <div className="our">
+        <h1 className="m1">Our Clients</h1>
+        <p className="m2">We have been working with some Fortune 500+ clients</p>
+        <div className="our_2">
+          {our.map(function (item){
+            return (
+              <img key={item.id} 
+                   src={item.icon} 
+                    />
+            );
+          })}
+        </div>
+        </div>
+    </section>
     </>
 );
 }
