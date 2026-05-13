@@ -130,6 +130,7 @@ return(
         </div>
         </div>
     </section>
+    {/* manage section */}
     <section className="manage">
       <div className="our_3">
           <h1 className="m3">
