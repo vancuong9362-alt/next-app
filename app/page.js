@@ -59,6 +59,26 @@ export default function Home() {
     icon: "/image/Logo (5).png"
   }
  ]
+ const manage =[
+{
+      id: 1,
+      title: "Membership  Organisations",
+      subtitle: "Our membership management software provides full automation of membership renewals and payments",
+      icon: "/image/Icon.png"
+    },
+    {
+      id: 2,
+      title: "National  Associations",
+      subtitle: "Our membership management software provides full automation of membership renewals and payments",
+      icon: "/image/Icon (1).png"
+    },
+    {
+      id: 3,
+      title: "Clubs And Groups",
+      subtitle: "Our membership management software provides full automation of membership renewals and payments",
+      icon: "/image/Icon (2).png"
+    },
+ ]
 return( 
    <>  
   <header>
@@ -94,6 +114,7 @@ return(
         <img src="/image/Illustration.png" alt="Nexcent Illustration " />
       </div>
     </section>
+    {/* our clien section */}
     <section className="clients-inner">
       <div className="our">
         <h1 className="m1">Our Clients</h1>
@@ -109,6 +130,27 @@ return(
         </div>
         </div>
     </section>
+    <section className="manage">
+      <div className="our_3">
+          <h1 className="m3">
+          Manage your entire community <br />in a single system
+        </h1>
+        <p className="m4">Who is Nextcent suitable for?</p>
+      </div>
+      <div className="our_4">
+          {manage.map(function (item){
+          return (
+            <div key={item.id} > 
+            <img src={item.icon} />
+              <h1>{item.title}</h1>
+              <p>{item.subtitle}</p>
+             </div>
+          )
+          })}
+      </div>
+      
+    </section>
+    
     </>
 );
 }
