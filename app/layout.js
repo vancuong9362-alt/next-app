@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "./page.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,9 +18,190 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const header = [
+    {
+      id: 1,
+      title: "home",
+      link: "http://localhost:3000",
+    },
+    {
+      id: 2,
+      title: "Service",
+      link: "http://localhost:3000/Service",
+    },
+    {
+      id: 3,
+      title: "Feature",
+      link: "http://localhost:3000/Feature",
+    },
+    {
+      id: 4,
+      title: "product",
+      link: "http://localhost:3000/Product",
+    },
+    {
+      id: 5,
+      title: "Testtimonial",
+      link: "http://localhost:3000/Testimonial",
+    },
+    {
+      id: 6,
+      title: "FAQ",
+      link: "http://localhost:3000/FAQ",
+    },
+  ];
+  const mangxahoi = [
+    {
+      id: 1,
+      icon: "/image/instaram.png",
+      link: "/intagram"
+    },
+    {
+      id: 2,
+      icon: "/image/drippel.png",
+      link: "/facebook"
+    },
+    {
+      id: 3,
+      icon: "/image/w.png",
+      link: "/tiktok"
+    },
+    {
+      id: 4,
+      icon: "/image/ytb.png",
+      link: "/yuotube"
+    },
+  ];
+  const footerright1 = [
+    {
+      id: 1,
+      title: "About us",
+    },
+    {
+      id: 2,
+      title: "Blog",
+    },
+    {
+      id: 3,
+      title: "Contact us",
+    },
+    {
+      id: 4,
+      title: "Pricing",
+    },
+    {
+      id: 5,
+      title: "Testimonials",
+    },
+  ];
+  const footerright2 = [
+    {
+      id: 1,
+      title: "Help center",
+    },
+    {
+      id: 2,
+      title: "Terms of service",
+    },
+    {
+      id: 3,
+      title: "Legal",
+    },
+    {
+      id: 4,
+      title: "Privacy policy",
+    },
+    {
+      id: 5,
+      title: "Status",
+    },
+  ];
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <header>
+          <div className="header-inner">
+            <a className="logo">
+              <img src="/image/nexccent2.png" />
+            </a>
+            <nav>
+              {header.map(function (values) {
+                return (
+                  <Link href={values.link} key={values.id}>
+                    {values.title}
+                  </Link>
+                );
+              })}
+            </nav>
+            <div>
+              <a className="login-btn">login</a>
+              <a className="signup-btn">signup</a>
+            </div>
+          </div>
+        </header>
+        <main>{children}</main>
+        <footer className="footer">
+           <div className="footer-top">
+          <div className="footertext1">
+            <h1>
+              Pellentesque suscipit <br />
+              fringilla libero eu.
+            </h1>
+            <button>Get a Demo</button>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <div className="footer-text">
+            <div className="logo-footer">
+              <div>
+                <img src="/image/nexccent2.png" alt="" />
+              </div>
+              <div className="copyright">
+                <p>Copyright © 2020 Nexcent ltd.</p>
+                <p>All rights reserved</p>
+              </div>
+           <div className="icon-mxh">
+                {mangxahoi.map(function (icon) {
+                  return (
+                  <Link href={icon.link} key={icon.id}>
+                  <img src={icon.icon}/>
+                  </Link>
+                  );
+                })}
+              </div>
+              </div>
+            <div className="footer-right">
+              <div>
+                <h3>Company</h3>
+                {footerright1.map(function (value) {
+                  return (
+                    <nav key={value.id}>
+                      <a>{value.title}</a>
+                    </nav>
+                  );
+                })}
+              </div>
+              <div>
+                <h3>Support</h3>
+                {footerright2.map(function (value) {
+                  return (
+                    <nav key={value.id}>
+                      <a>{value.title}</a>
+                    </nav>
+                  );
+                })}
+              </div>
+              <div>
+                <h3>Stay up to date</h3>
+                <div className="email-box">
+                  <input type="email" placeholder="Your email address" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </footer>
+      </body>
     </html>
   );
 }
